@@ -1,6 +1,7 @@
 {{ partial "header.html" . }}
 
-
+          
+          
        <!-- Body Content -->
 
         <section id="lapa-content">
@@ -8,8 +9,10 @@
 
 
 
+
             <ul class="lapa-post__home">
 
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
             {{ range  where .Data.Pages "Type" "post"}}
 
 
@@ -41,7 +44,7 @@
             </div>
 
           
-          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+          
           {{ template "_internal/pagination.html" . }}
           {{ range $paginator.Pages }}
             Content of {{ .Title }}
