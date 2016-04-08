@@ -1,0 +1,70 @@
+
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+
+{{ partial "header.html" . }}
+<section id="lapa-content">
+    <div class="lapa-post lapa-container">
+        <!-- Body Content -->
+        <section id="lapa-content">
+            <div class="lapa-post lapa-container {{ if eq $url "category/" }}lapa-category {{ end }}">
+            
+
+
+            {{ if eq $url "category/" }}
+                
+                <h1 class="lapa-category__name">Categories</h1>
+
+                <ul class="lapa-category__list">
+
+                    {{ range $name, $taxonomy := .Site.Taxonomies.category }}
+                        {{ if ne $name "" }}
+                        <li class="lapa-category__item">
+                            <a class="lapa-category__link" title="$name" href="/category/{{ $name | urlize }}">{{ $name }}</a>
+                        </li>
+                        {{ end }}
+                        
+                    {{ end }}
+
+                </ul>
+
+              
+            {{ end }}
+        
+            
+            {{ if ne $url "category/" }}
+
+  
+                <ul class="lapa-post__home">
+
+                    {{ range .Paginator.Pages }}
+                    <li>
+                        <div class="lapa-post__item">
+                            <a href="{{ .Permalink }}" data-original="{{ .Params.thumb }}" class="lapa-post__link js-lazy"  title="{{ .Params.name }}" 
+                            style="background-image : url({{ .Site.BaseURL }}img/grey.gif); background-repeat: repeat;">{{ .Params.name }}
+                      </a>
+
+                            <div class="lapa-post__info">
+                                <h2 class="lapa-post__name"><a href="{{ .Permalink }}" class="lapa-post__name-link">{{ .Params.name }}</a></h2>
+                                <p class="lapa-post__des">{{ .Params.short_description }}</p>
+                                <a href="{{ .Params.link }}" class="lapa-post__visit" title="Visit {{ .Params.name }}" target="_blank">Visit {{ .Params.name }}</a>
+                            </div>
+                        </div>
+                    </li>
+                    {{ end }}
+
+
+                </ul>
+
+             {{ end }}
+
+            </div>
+
+            {{ if ne $url "category/" }}
+                {{ partial "pagination.html" . }}
+            {{ end  }}   
+           
+        </section>
+
+    </div>
+</section>
+{{ partial "footer.html" . }}

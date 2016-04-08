@@ -1,0 +1,29 @@
+    
+<!-- Lapa Footer -->
+{{ range where .Data.Pages "Type" "post" }}
+
+    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+        
+        {{ if .Paginator.HasPrev }}
+            <a href="{{.Paginator.Prev.URL}}">
+                {{ with .Site.Params.newerPosts }}{{ . }}{{ else }}Newer Posts{{ end }}
+            </a>
+        {{ end }}
+
+
+
+        {{ if .Paginator.HasNext }}
+            <a href="{{.Paginator.Next.URL}}">
+                {{ with .Site.Params.olderPosts }}{{ . }}{{ else }}Older Posts{{ end }}
+            </a>
+        {{ end }}
+        
+    {{ end }}
+
+{{ end }}
+
+
+    
+
+
+

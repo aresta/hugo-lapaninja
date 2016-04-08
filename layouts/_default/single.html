@@ -1,0 +1,49 @@
+{{ partial "header.html" . }}
+
+
+       <!-- Body Content -->
+
+        <!-- Body Content -->
+
+        <section id="lapa-content">
+
+            <div class="detail-post lapa-container">
+
+            <article class="detail-post__content">
+              
+              <header class="detail-post__header">
+                <div class="detail-post__info">
+                  <h1>{{ .Title }}</h1>
+                  <p>{{ .Description }}</p>
+                </div>
+
+                <div class="detail-post__link">
+                  <a href="{{ .Params.link }}" class="detail-post__site" title="Visit {{ .Params.name }}" target="_blank">Visit Site</a>
+                </div>
+
+              </header>
+
+              <div class="detai-post__img">
+
+                <img src="{{ .Params.image }} " alt="{{ .Params.name }}">
+
+
+              </div>
+
+            </article>
+
+      
+            {{ partial "latest-posts.html" . }}
+
+             {{ partial "disqus.html" . }}
+
+            </div>
+
+        </section>
+
+
+
+        <!-- End Body Content -->
+
+{{ partial "footer.html" . }}
+

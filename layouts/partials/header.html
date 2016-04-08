@@ -1,0 +1,174 @@
+
+<!doctype html>
+<html class="no-js" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        {{ .Hugo.Generator }}
+
+        {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+
+        <title>{{ if eq $url "category/" }}{{ .Site.Params.categoryTitle }}{{ end }}{{ .Title }} | {{ .Site.Params.seo }} </title>
+        <meta name="description" content="{{if .Description }}{{.Description}}{{else}}{{.Site.Params.description}}{{end}}">
+
+        <meta name="keywords" content="{{if .Keywords }}{{ range .Keywords }}{{ . }}, {{ end }}{{else}}{{.Site.Params.keywords}}{{end}}">
+
+        <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+        <meta property="og:url" content="http://lapa.ninja/">
+        <meta property="og:description" content="{{if .Description }}{{.Description}}{{else}}{{.Site.Params.description}}{{end}}">
+        <meta property="og:site_name" content="Lapa.Ninja">
+        <meta property="og:type" content="product">
+        <meta property="og:image" content="https://farm4.staticflickr.com/3751/19303333111_4d5efb9466_b.jpg">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="canonical" href="{{ .Permalink }}">
+
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+        <meta name="application-name" content="&nbsp;"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+
+
+        <!-- Place favicon.ico in the root directory -->
+        
+        <!-- LAPA 1.0 -->
+        <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/v1/lapa-ver-1.css"> -->
+        
+        <!-- LAPA 1.0 DEV -->
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}css/lapa-ver-1.css">
+
+        <!-- Google Fonts: Open San -->
+
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <!-- RSS -->
+      
+
+      <link href="{{ .Site.BaseURL }}index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+        <script src="{{ .Site.BaseURL }}js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <!-- Hotjar Tracking Code for lapa.ninja -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:52441,hjsv:5};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+
+
+                <!-- Pin -->
+
+    <script async defer data-pin-hover="true" data-pin-color="red" data-pin-tall="true" src="//assets.pinterest.com/js/pinit.js"></script>
+
+
+        
+
+    </head>
+
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+       <!-- Header -->
+       <header id="lapa-header">
+          <nav class="lapa-header__content lapa-container">
+            
+            <h1 class="lapa-logo">
+              <a href="{{ .Site.BaseURL }}" class="lapa-logo__link">
+                <img src="{{ .Site.BaseURL }}img/lapa-logo.svg">
+              </a>
+           </h1>
+
+
+
+           <ul class="lapa-nav">
+       <!--         <li class="lapa-nav__item"><a href="" class="lapa-nav__link">Newest</a></li>
+               <li class="lapa-nav__item"><a href="" class="lapa-nav__link">Popular</a></li> -->
+               <li class="lapa-nav__item lapa-nav--children">
+
+                  <a href="#"  class="lapa-nav__link js-lapa-nav__click " title="Categories">Categories</a>
+
+                </li>
+
+               <li class="lapa-nav__item"><a href="https://creativemarket.com/arestaco" class="lapa-nav__link" title="Support Lapa - Buy Our Products">Lapa Shop</a>
+
+               </li>
+
+              <!-- <li class="lapa-nav__item"><a href="/resource" class="lapa-nav__link">Resources</a></li> -->
+            
+              <!-- <li class="lapa-nav__item"><a href="http://submit.lapa.ninja/" target="_blank" title="Submit Your Inspiration" class="lapa-nav__link">Submit Work</a></li> -->
+
+               <li class="lapa-nav__item"><a href="/freebie"  title="Download Freebies from LAPA" class="lapa-nav__link">Freebies</a></li>
+
+
+               <li class="lapa-nav__item"><a href="/about" class="lapa-nav__link">About</a></li>
+
+           </ul>
+
+          <ul class="cd-header-buttons">
+            <li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
+            <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+          </ul>
+
+          </nav>
+
+                            <div class="lapa-category js-lapa-category">
+
+                    <ul class="lapa-category__list">
+
+                    {{ range $name, $taxonomy := .Site.Taxonomies.category }}
+                        {{ if ne $name "" }}
+                        <li class="lapa-category__item">
+                            <a class="lapa-category__link" title="{{ $name }}" href="/category/{{ $name | urlize }}">{{ $name }}</a>
+                        </li>
+                        {{ end }}
+                        
+                    {{ end }}
+
+                    </ul>
+
+                  </div>
+
+        <div id="cd-search" class="cd-search">
+          <form action="/search">
+            <input type="search" placeholder="Search..." name="q" autofocus>
+
+
+          </form>
+
+        </div>
+
+
+           
+       </header>
+
+       <div class="lapa-overlay"></div>
+
+       <!-- End Header -->
